@@ -10,6 +10,7 @@
 
 import ftplib
 import os
+import shutil
 
 # FTP Server Information
 server = '10.14.65.5'
@@ -31,6 +32,11 @@ ftp.cwd(directory)
 pp_folder = os.path.join(r"c:\--destination--)
 fp_folder = os.path.join(r"c:\--destination--)
 
+# Set global parameters for filenames
+
+prelim = 'pp'
+final = 'fp'
+
 # Loop through each file and download to the
 # designated folder
 
@@ -39,7 +45,17 @@ for fname in ftp.nlst(filenames):
 	print "Downloading " + fname
 	ftp.retrbinary('RETR ' + fname, fhandle.write)
 	fhandle.close()
-	if 
+	if prelim.lower() in fname:
+		shutil.move(src, pp_folder)
+	elif:
+		shutil.move(src, fp_folder)
+
+print "Scanned plats are in the appropriate folders!"
+
+# Combine each file based on filename
+
+
+
 
 
 
